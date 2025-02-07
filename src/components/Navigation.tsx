@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
@@ -15,12 +14,20 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Locations", path: "/locations" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Services", id: "services" },
+    { name: "Locations", id: "locations" },
+    { name: "Contact", id: "contact" },
   ];
 
   return (
@@ -33,30 +40,30 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link
-            to="/"
-            className="text-2xl font-bold text-primary hover:text-secondary transition-colors"
+          <button
+            onClick={() => scrollToSection("home")}
+            className="flex items-center"
           >
-            GD Logistic
-          </Link>
+            <img src="/logo.png" alt="GD Logistic" className="h-12 w-auto" />
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                to={link.path}
+                onClick={() => scrollToSection(link.id)}
                 className="text-primary hover:text-secondary transition-colors"
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
-            <Link
-              to="/quote"
+            <button
+              onClick={() => scrollToSection("quote")}
               className="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90 transition-colors"
             >
               Get Quote
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -78,22 +85,20 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-lg rounded-md mt-2">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  to={link.path}
-                  className="block px-3 py-2 text-primary hover:text-secondary transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => scrollToSection(link.id)}
+                  className="block w-full text-left px-3 py-2 text-primary hover:text-secondary transition-colors"
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
-              <Link
-                to="/quote"
-                className="block px-3 py-2 text-secondary hover:text-secondary/90 transition-colors"
-                onClick={() => setIsOpen(false)}
+              <button
+                onClick={() => scrollToSection("quote")}
+                className="block w-full text-left px-3 py-2 text-secondary hover:text-secondary/90 transition-colors"
               >
                 Get Quote
-              </Link>
+              </button>
             </div>
           </div>
         )}
