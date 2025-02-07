@@ -1,5 +1,5 @@
 
-import { Truck, Package, Map, ArrowRight } from "lucide-react";
+import { Truck, Package, Map, ArrowRight, Globe, Building2, BadgeCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -18,13 +18,13 @@ const Index = () => {
           <div className="flex justify-center gap-4">
             <Link
               to="/quote"
-              className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2"
+              className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2 hover:scale-105"
             >
               Get a Quote <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
               to="/services"
-              className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-md transition-all"
+              className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-md transition-all hover:scale-105"
             >
               Our Services
             </Link>
@@ -35,7 +35,7 @@ const Index = () => {
       {/* Services Preview */}
       <section className="py-20 bg-gray-50">
         <div className="container px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             Our Core Services
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -61,9 +61,10 @@ const Index = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-all group"
+                className="p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-all group animate-fade-up"
+                style={{ animationDelay: `${index * 200}ms` }}
               >
-                <service.icon className="h-12 w-12 text-secondary mb-4" />
+                <service.icon className="h-12 w-12 text-secondary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-semibold mb-2 text-primary">
                   {service.title}
                 </h3>
@@ -72,8 +73,114 @@ const Index = () => {
                   to="/services"
                   className="text-secondary hover:text-secondary/80 flex items-center gap-2 transition-colors"
                 >
-                  Learn More <ArrowRight className="h-4 w-4" />
+                  Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                 </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="container px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
+            Why Choose GD Logistic?
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Globe,
+                title: "Pan India Coverage",
+                description: "Serving all major cities and industrial hubs",
+              },
+              {
+                icon: Building2,
+                title: "Modern Infrastructure",
+                description: "State-of-the-art warehouses and fleet",
+              },
+              {
+                icon: BadgeCheck,
+                title: "Quality Service",
+                description: "Committed to excellence in logistics",
+              },
+              {
+                icon: Users,
+                title: "Expert Team",
+                description: "Experienced professionals at your service",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="text-center animate-fade-up"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <feature.icon className="h-12 w-12 text-secondary mx-auto mb-4 hover:scale-110 transition-transform" />
+                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-primary text-white">
+        <div className="container px-4">
+          <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
+            {[
+              { number: "1000+", label: "Vehicles" },
+              { number: "50+", label: "Warehouses" },
+              { number: "2000+", label: "Happy Clients" },
+              { number: "24/7", label: "Support" },
+            ].map((stat, index) => (
+              <div
+                key={index}
+                className="text-center"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="text-4xl font-bold mb-2 text-secondary">
+                  {stat.number}
+                </div>
+                <div className="text-lg">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="container px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
+            What Our Clients Say
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                text: "GD Logistic has transformed our supply chain with their efficient service.",
+                author: "Rahul Sharma",
+                company: "Tech Solutions Ltd",
+              },
+              {
+                text: "Reliable and professional logistics partner for our growing business.",
+                author: "Priya Patel",
+                company: "Retail Giants Inc",
+              },
+              {
+                text: "Outstanding service quality and commitment to timely delivery.",
+                author: "Amit Kumar",
+                company: "Manufacturing Pro",
+              },
+            ].map((testimonial, index) => (
+              <div
+                key={index}
+                className="p-6 bg-white rounded-lg shadow-md animate-fade-up"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <p className="text-gray-600 mb-4 italic">{testimonial.text}</p>
+                <div className="font-semibold">{testimonial.author}</div>
+                <div className="text-sm text-gray-500">{testimonial.company}</div>
               </div>
             ))}
           </div>
@@ -83,14 +190,14 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="container px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 animate-fade-up">Ready to Get Started?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto animate-fade-up">
             Contact us today to discuss your logistics needs and get a customized
             solution for your business.
           </p>
           <Link
             to="/contact"
-            className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-md transition-all inline-flex items-center gap-2"
+            className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-md transition-all inline-flex items-center gap-2 hover:scale-105 animate-fade-up"
           >
             Contact Us <ArrowRight className="h-5 w-5" />
           </Link>
