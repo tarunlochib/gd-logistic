@@ -26,18 +26,20 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-md"
-          : "bg-transparent"
+        isScrolled ? "bg-white shadow-md" : "bg-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link
             to="/"
-            className="text-2xl font-bold text-primary hover:text-secondary transition-colors"
+            className="flex items-center space-x-2"
           >
-            GD Logistic
+            <img 
+              src="/lovable-uploads/a7bed84b-d5ae-4e35-8e79-551fe25bc3cf.png" 
+              alt="GD Logistic Logo" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -46,7 +48,7 @@ const Navigation = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-primary hover:text-secondary transition-colors"
+                className="text-gray-600 hover:text-secondary transition-colors font-medium"
               >
                 {link.name}
               </Link>
@@ -66,9 +68,9 @@ const Navigation = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-primary" />
+              <X className="h-6 w-6 text-gray-600" />
             ) : (
-              <Menu className="h-6 w-6 text-primary" />
+              <Menu className="h-6 w-6 text-gray-600" />
             )}
           </button>
         </div>
@@ -76,12 +78,12 @@ const Navigation = () => {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-lg rounded-md mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-md mt-2 shadow-lg">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="block px-3 py-2 text-primary hover:text-secondary transition-colors"
+                  className="block px-3 py-2 text-gray-600 hover:text-secondary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
