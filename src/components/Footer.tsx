@@ -9,8 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="animate-fade-up">
-            <Link to="/" className="text-2xl font-bold mb-4 block hover:text-secondary transition-colors">
-              GD Logistic
+            <Link to="/" className="block mb-4">
+              <img 
+                src="/lovable-uploads/28260aac-e651-4c29-9814-9bdbeb1032eb.png" 
+                alt="GD Logistic" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-gray-300 mb-4">
               Your trusted partner in logistics and transportation across India.

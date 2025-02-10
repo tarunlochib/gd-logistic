@@ -199,88 +199,90 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             Trusted by Industry Leaders
           </h2>
-          <div className="flex gap-8 items-center animate-marquee">
-            <div className="flex gap-8 items-center min-w-full justify-around">
+          <div className="flex gap-16 items-center animate-marquee">
+            <div className="flex gap-16 items-center min-w-full justify-around">
               {[
                 {
                   src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
                   alt: "Tata Logo",
-                  className: "h-16 w-auto"
+                  className: "h-16"
                 },
                 {
                   src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
                   alt: "Hero Logo",
-                  className: "h-16 w-auto"
+                  className: "h-16"
                 },
                 {
                   src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
                   alt: "Honda Logo",
-                  className: "h-12 w-auto"
+                  className: "h-12"
                 },
                 {
                   src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
                   alt: "Maruti Suzuki Logo",
-                  className: "h-10 w-auto"
+                  className: "h-10"
                 },
                 {
                   src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
                   alt: "New Holland Logo",
-                  className: "h-16 w-auto"
+                  className: "h-16"
                 },
                 {
                   src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
                   alt: "Yamaha Logo",
-                  className: "h-12 w-auto"
+                  className: "h-12"
                 },
               ].map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`${logo.className} object-contain grayscale hover:grayscale-0 transition-all duration-300`}
-                />
+                <div key={index} className="flex items-center justify-center w-40">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`${logo.className} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`}
+                  />
+                </div>
               ))}
             </div>
             {/* Duplicate for seamless loop */}
-            <div className="flex gap-8 items-center min-w-full justify-around">
+            <div className="flex gap-16 items-center min-w-full justify-around">
               {[
                 {
                   src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
                   alt: "Tata Logo",
-                  className: "h-16 w-auto"
+                  className: "h-16"
                 },
                 {
                   src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
                   alt: "Hero Logo",
-                  className: "h-16 w-auto"
+                  className: "h-16"
                 },
                 {
                   src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
                   alt: "Honda Logo",
-                  className: "h-12 w-auto"
+                  className: "h-12"
                 },
                 {
                   src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
                   alt: "Maruti Suzuki Logo",
-                  className: "h-10 w-auto"
+                  className: "h-10"
                 },
                 {
                   src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
                   alt: "New Holland Logo",
-                  className: "h-16 w-auto"
+                  className: "h-16"
                 },
                 {
                   src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
                   alt: "Yamaha Logo",
-                  className: "h-12 w-auto"
+                  className: "h-12"
                 },
               ].map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`${logo.className} object-contain grayscale hover:grayscale-0 transition-all duration-300`}
-                />
+                <div key={index} className="flex items-center justify-center w-40">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`${logo.className} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`}
+                  />
+                </div>
               ))}
             </div>
           </div>

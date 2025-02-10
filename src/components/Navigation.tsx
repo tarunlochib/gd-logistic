@@ -24,16 +24,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
-    >
+    <nav className="fixed w-full z-50 bg-white shadow-md">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/a7bed84b-d5ae-4e35-8e79-551fe25bc3cf.png" 
+              src="/lovable-uploads/28260aac-e651-4c29-9814-9bdbeb1032eb.png" 
               alt="GD Logistic Logo" 
               className="h-12 w-auto"
             />
@@ -45,16 +41,14 @@ const Navigation = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-colors ${
-                  isScrolled ? "text-gray-600 hover:text-orange-500" : "text-white hover:text-orange-500"
-                }`}
+                className="text-sm font-medium text-gray-600 hover:text-secondary transition-colors"
               >
                 {link.name}
               </Link>
             ))}
             <Link
               to="/quote"
-              className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+              className="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90 transition-colors text-sm font-medium"
             >
               Get Quote
             </Link>
@@ -67,9 +61,9 @@ const Navigation = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? "text-gray-600" : "text-white"}`} />
+              <X className="h-6 w-6 text-gray-600" />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? "text-gray-600" : "text-white"}`} />
+              <Menu className="h-6 w-6 text-gray-600" />
             )}
           </button>
         </div>
@@ -82,7 +76,7 @@ const Navigation = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="block px-3 py-2 text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                  className="block px-3 py-2 text-gray-600 hover:text-secondary transition-colors text-sm"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -90,7 +84,7 @@ const Navigation = () => {
               ))}
               <Link
                 to="/quote"
-                className="block px-3 py-2 text-orange-500 hover:text-orange-600 transition-colors text-sm"
+                className="block px-3 py-2 text-secondary hover:text-secondary/90 transition-colors text-sm"
                 onClick={() => setIsOpen(false)}
               >
                 Get Quote
