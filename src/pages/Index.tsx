@@ -1,4 +1,3 @@
-
 import { Truck, Package, Map, ArrowRight, Globe, Building2, BadgeCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -7,14 +6,15 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="h-screen relative flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/50">
+        <div className="absolute inset-0">
           <img 
             src="/lovable-uploads/c7cd9328-7424-4db5-8a6d-968ef7081eb7.png"
             alt="Logistics Background"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-black/30" /> {/* Reduced opacity overlay */}
         </div>
-        <div className="container relative z-10 px-4 animate-fade-up">
+        <div className="container relative z-10 px-4 animate-fade-up max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center text-white">
             Simplifying your business with Reliable Logistics Solutions
           </h1>
@@ -24,13 +24,13 @@ const Index = () => {
           <div className="flex justify-center gap-4 flex-wrap">
             <Link
               to="/services"
-              className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2 hover:scale-105 animate-fade-up"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2 hover:scale-105 animate-fade-up"
             >
               Explore Services <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
               to="/contact"
-              className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-md transition-all hover:scale-105 animate-fade-up"
+              className="border border-white hover:bg-white/10 text-white px-6 py-3 rounded-md transition-all hover:scale-105 animate-fade-up"
             >
               Contact Us
             </Link>
@@ -40,7 +40,7 @@ const Index = () => {
 
       {/* Services Preview */}
       <section className="py-20 bg-gray-50">
-        <div className="container px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             Our Core Services
           </h2>
@@ -89,7 +89,7 @@ const Index = () => {
 
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
-        <div className="container px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             Why Choose GD Logistic?
           </h2>
@@ -132,7 +132,7 @@ const Index = () => {
 
       {/* Stats Section */}
       <section className="py-20 bg-primary text-white">
-        <div className="container px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
             {[
               { number: "1000+", label: "Vehicles" },
@@ -157,7 +157,7 @@ const Index = () => {
 
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">
-        <div className="container px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             What Our Clients Say
           </h2>
@@ -193,9 +193,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Clients Section - New */}
+      {/* Clients Section */}
       <section className="py-20 bg-white">
-        <div className="container px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             Trusted by Industry Leaders
           </h2>
@@ -215,7 +215,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
-        <div className="container px-4 text-center">
+        <div className="container max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 animate-fade-up">Ready to Get Started?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto animate-fade-up">
             Contact us today to discuss your logistics needs and get a customized
@@ -223,7 +223,7 @@ const Index = () => {
           </p>
           <Link
             to="/contact"
-            className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-md transition-all inline-flex items-center gap-2 hover:scale-105 animate-fade-up"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md transition-all inline-flex items-center gap-2 hover:scale-105 animate-fade-up"
           >
             Contact Us <ArrowRight className="h-5 w-5" />
           </Link>
