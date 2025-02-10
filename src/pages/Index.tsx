@@ -1,4 +1,3 @@
-
 import { Truck, Package, Map, ArrowRight, Globe, Building2, BadgeCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -6,27 +5,33 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-screen relative flex items-center justify-center bg-gradient-to-r from-primary to-primary/90 text-white">
-        <div className="absolute inset-0 bg-black/40" />
+      <section className="h-screen relative flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/50">
+          <img 
+            src="/lovable-uploads/a7bed84b-d5ae-4e35-8e79-551fe25bc3cf.png"
+            alt="Logistics Background"
+            className="w-full h-full object-cover opacity-40"
+          />
+        </div>
         <div className="container relative z-10 px-4 animate-fade-up">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center">
-            Reliable Logistics Solutions for India
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center text-white">
+            Simplifying your business with Reliable Logistics Solutions
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-center max-w-2xl mx-auto">
-            Your trusted partner in transportation and logistics across India
+          <p className="text-xl md:text-2xl mb-8 text-center max-w-3xl mx-auto text-white">
+            From cargo transportation to advanced supply chain solutions, we deliver excellence at every step
           </p>
-          <div className="flex justify-center gap-4">
-            <Link
-              to="/quote"
-              className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2 hover:scale-105"
-            >
-              Get a Quote <ArrowRight className="h-5 w-5" />
-            </Link>
+          <div className="flex justify-center gap-4 flex-wrap">
             <Link
               to="/services"
-              className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-md transition-all hover:scale-105"
+              className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2 hover:scale-105 animate-fade-up"
             >
-              Our Services
+              Explore Services <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              to="/contact"
+              className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-md transition-all hover:scale-105 animate-fade-up"
+            >
+              Contact Us
             </Link>
           </div>
         </div>
@@ -181,6 +186,26 @@ const Index = () => {
                 <p className="text-gray-600 mb-4 italic">{testimonial.text}</p>
                 <div className="font-semibold">{testimonial.author}</div>
                 <div className="text-sm text-gray-500">{testimonial.company}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section - New */}
+      <section className="py-20 bg-white">
+        <div className="container px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
+            Trusted by Industry Leaders
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            {["Tata", "Hero", "Honda", "Maruti Suzuki", "New Holland", "Yamaha"].map((client, index) => (
+              <div
+                key={client}
+                className="text-center p-4 animate-fade-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="text-xl font-semibold text-gray-600">{client}</div>
               </div>
             ))}
           </div>
