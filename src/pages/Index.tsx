@@ -1,3 +1,4 @@
+
 import { Truck, Package, Map, ArrowRight, Globe, Building2, BadgeCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,7 @@ const Index = () => {
       <section className="h-screen relative flex items-center justify-center">
         <div className="absolute inset-0 bg-black/50">
           <img 
-            src="/lovable-uploads/a7bed84b-d5ae-4e35-8e79-551fe25bc3cf.png"
+            src="/lovable-uploads/c7cd9328-7424-4db5-8a6d-968ef7081eb7.png"
             alt="Logistics Background"
             className="w-full h-full object-cover opacity-40"
           />
