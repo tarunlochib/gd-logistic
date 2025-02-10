@@ -71,10 +71,15 @@ export default {
             transform: "translateY(0)",
           },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-down": "fade-down 0.5s ease-out",
+        "marquee": "marquee 30s linear infinite",
       },
     },
   },

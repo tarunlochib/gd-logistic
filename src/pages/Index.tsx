@@ -194,21 +194,95 @@ const Index = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
             Trusted by Industry Leaders
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {["Tata", "Hero", "Honda", "Maruti Suzuki", "New Holland", "Yamaha"].map((client, index) => (
-              <div
-                key={client}
-                className="text-center p-4 animate-fade-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-xl font-semibold text-gray-600">{client}</div>
-              </div>
-            ))}
+          <div className="flex gap-8 items-center animate-marquee">
+            <div className="flex gap-8 items-center min-w-full justify-around">
+              {[
+                {
+                  src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
+                  alt: "Tata Logo",
+                  className: "h-16 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
+                  alt: "Hero Logo",
+                  className: "h-16 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
+                  alt: "Honda Logo",
+                  className: "h-12 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
+                  alt: "Maruti Suzuki Logo",
+                  className: "h-10 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
+                  alt: "New Holland Logo",
+                  className: "h-16 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
+                  alt: "Yamaha Logo",
+                  className: "h-12 w-auto"
+                },
+              ].map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={`${logo.className} object-contain grayscale hover:grayscale-0 transition-all duration-300`}
+                />
+              ))}
+            </div>
+            {/* Duplicate for seamless loop */}
+            <div className="flex gap-8 items-center min-w-full justify-around">
+              {[
+                {
+                  src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
+                  alt: "Tata Logo",
+                  className: "h-16 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
+                  alt: "Hero Logo",
+                  className: "h-16 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
+                  alt: "Honda Logo",
+                  className: "h-12 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
+                  alt: "Maruti Suzuki Logo",
+                  className: "h-10 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
+                  alt: "New Holland Logo",
+                  className: "h-16 w-auto"
+                },
+                {
+                  src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
+                  alt: "Yamaha Logo",
+                  className: "h-12 w-auto"
+                },
+              ].map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={`${logo.className} object-contain grayscale hover:grayscale-0 transition-all duration-300`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
