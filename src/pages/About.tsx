@@ -4,7 +4,7 @@ import { TruckIcon, PackageIcon, Building2Icon } from "lucide-react";
 const About = () => {
   return (
     <div className="min-h-screen pt-16">
-      <div className="container px-4 py-20">
+      <div className="container px-4 py-20 max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-primary mb-12 text-center animate-fade-up">
           About Us
         </h1>
@@ -20,10 +20,10 @@ const About = () => {
               />
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4 text-primary">Gaurav Dhawan</h2>
+              <h2 className="text-2xl font-bold mb-4 text-primary">Vikram Lochib</h2>
               <p className="text-gray-600 mb-4">
                 With over 20 years of experience in logistics and transportation,
-                Gaurav Dhawan founded GD Logistic with a vision to revolutionize
+                Vikram Lochib founded GD Logistic with a vision to revolutionize
                 the logistics industry in India. His expertise and leadership have
                 been instrumental in making GD Logistic one of the most trusted
                 names in the industry.
