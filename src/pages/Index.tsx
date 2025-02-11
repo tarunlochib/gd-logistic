@@ -1,7 +1,45 @@
 import { Truck, Package, Map, ArrowRight, Globe, Building2, BadgeCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Index = () => {
+  const [counts, setCounts] = useState({
+    vehicles: 0,
+    warehouses: 0,
+    clients: 0
+  });
+
+  useEffect(() => {
+    const duration = 2000; // 2 seconds for the animation
+    const steps = 50; // number of steps in the animation
+    const interval = duration / steps;
+
+    const targetCounts = {
+      vehicles: 1000,
+      warehouses: 50,
+      clients: 2000
+    };
+
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      
+      if (currentStep <= steps) {
+        setCounts({
+          vehicles: Math.floor((targetCounts.vehicles / steps) * currentStep),
+          warehouses: Math.floor((targetCounts.warehouses / steps) * currentStep),
+          clients: Math.floor((targetCounts.clients / steps) * currentStep)
+        });
+      } else {
+        setCounts(targetCounts);
+        clearInterval(timer);
+      }
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -135,9 +173,9 @@ const Index = () => {
         <div className="container max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
             {[
-              { number: "1000+", label: "Vehicles" },
-              { number: "50+", label: "Warehouses" },
-              { number: "2000+", label: "Happy Clients" },
+              { number: counts.vehicles, suffix: "+", label: "Vehicles" },
+              { number: counts.warehouses, suffix: "+", label: "Warehouses" },
+              { number: counts.clients, suffix: "+", label: "Happy Clients" },
               { number: "24/7", label: "Support" },
             ].map((stat, index) => (
               <div
@@ -146,7 +184,8 @@ const Index = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="text-4xl font-bold mb-2 text-secondary">
-                  {stat.number}
+                  {typeof stat.number === 'number' ? stat.number.toLocaleString() : stat.number}
+                  {stat.suffix}
                 </div>
                 <div className="text-lg">{stat.label}</div>
               </div>
@@ -205,35 +244,35 @@ const Index = () => {
                 {
                   src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
                   alt: "Tata Logo",
-                  className: "h-12 md:h-16"
+                  className: "h-12 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
                   alt: "Hero Logo",
-                  className: "h-12 md:h-16"
+                  className: "h-12 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
                   alt: "Honda Logo",
-                  className: "h-10 md:h-12"
+                  className: "hidden md:block h-10 md:h-12 lg:h-16"
                 },
                 {
                   src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
                   alt: "Maruti Suzuki Logo",
-                  className: "h-8 md:h-10"
+                  className: "hidden md:block h-8 md:h-10 lg:h-14"
                 },
                 {
                   src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
                   alt: "New Holland Logo",
-                  className: "h-12 md:h-16"
+                  className: "h-12 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
                   alt: "Yamaha Logo",
-                  className: "h-10 md:h-12"
+                  className: "hidden md:block h-10 md:h-12 lg:h-16"
                 },
               ].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-24 md:w-40">
+                <div key={index} className="flex items-center justify-center w-24 md:w-40 lg:w-48">
                   <img
                     src={logo.src}
                     alt={logo.alt}
@@ -248,35 +287,35 @@ const Index = () => {
                 {
                   src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
                   alt: "Tata Logo",
-                  className: "h-12 md:h-16"
+                  className: "h-12 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
                   alt: "Hero Logo",
-                  className: "h-12 md:h-16"
+                  className: "h-12 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
                   alt: "Honda Logo",
-                  className: "h-10 md:h-12"
+                  className: "hidden md:block h-10 md:h-12 lg:h-16"
                 },
                 {
                   src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
                   alt: "Maruti Suzuki Logo",
-                  className: "h-8 md:h-10"
+                  className: "hidden md:block h-8 md:h-10 lg:h-14"
                 },
                 {
                   src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
                   alt: "New Holland Logo",
-                  className: "h-12 md:h-16"
+                  className: "h-12 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
                   alt: "Yamaha Logo",
-                  className: "h-10 md:h-12"
+                  className: "hidden md:block h-10 md:h-12 lg:h-16"
                 },
               ].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-24 md:w-40">
+                <div key={index} className="flex items-center justify-center w-24 md:w-40 lg:w-48">
                   <img
                     src={logo.src}
                     alt={logo.alt}
