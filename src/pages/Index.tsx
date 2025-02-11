@@ -53,10 +53,10 @@ const Index = () => {
           <div className="absolute inset-0 bg-black/30" /> {/* Reduced opacity overlay */}
         </div>
         <div className="container relative z-10 px-4 animate-fade-up max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center text-white">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center text-white">
             Simplifying your business with Reliable Logistics Solutions
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-center max-w-3xl mx-auto text-white">
+          <p className="text-lg md:text-xl mb-8 text-center max-w-3xl mx-auto text-white">
             From cargo transportation to advanced supply chain solutions, we deliver excellence at every step
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
@@ -232,7 +232,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Clients Section */}
+      {/* Clients Section with updated mobile styling */}
       <section className="py-20 bg-white overflow-hidden">
         <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
@@ -244,35 +244,35 @@ const Index = () => {
                 {
                   src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
                   alt: "Tata Logo",
-                  className: "h-12 md:h-16 lg:h-20"
+                  className: "h-16 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
                   alt: "Hero Logo",
-                  className: "h-12 md:h-16 lg:h-20"
+                  className: "h-16 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
                   alt: "Honda Logo",
-                  className: "hidden md:block h-10 md:h-12 lg:h-16"
+                  className: "hidden md:block h-12 md:h-12 lg:h-16"
                 },
                 {
                   src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
                   alt: "Maruti Suzuki Logo",
-                  className: "hidden md:block h-8 md:h-10 lg:h-14"
+                  className: "hidden md:block h-10 md:h-10 lg:h-14"
                 },
                 {
                   src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
                   alt: "New Holland Logo",
-                  className: "h-12 md:h-16 lg:h-20"
+                  className: "h-16 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
                   alt: "Yamaha Logo",
-                  className: "hidden md:block h-10 md:h-12 lg:h-16"
+                  className: "hidden md:block h-12 md:h-12 lg:h-16"
                 },
               ].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-24 md:w-40 lg:w-48">
+                <div key={index} className="flex items-center justify-center w-32 md:w-40 lg:w-48">
                   <img
                     src={logo.src}
                     alt={logo.alt}
@@ -281,41 +281,41 @@ const Index = () => {
                 </div>
               ))}
             </div>
-            {/* Duplicate for seamless loop */}
+            {/* Duplicate for seamless loop with same adjustments */}
             <div className="flex gap-8 md:gap-16 items-center min-w-full justify-around">
               {[
                 {
                   src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
                   alt: "Tata Logo",
-                  className: "h-12 md:h-16 lg:h-20"
+                  className: "h-16 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
                   alt: "Hero Logo",
-                  className: "h-12 md:h-16 lg:h-20"
+                  className: "h-16 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
                   alt: "Honda Logo",
-                  className: "hidden md:block h-10 md:h-12 lg:h-16"
+                  className: "hidden md:block h-12 md:h-12 lg:h-16"
                 },
                 {
                   src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
                   alt: "Maruti Suzuki Logo",
-                  className: "hidden md:block h-8 md:h-10 lg:h-14"
+                  className: "hidden md:block h-10 md:h-10 lg:h-14"
                 },
                 {
                   src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
                   alt: "New Holland Logo",
-                  className: "h-12 md:h-16 lg:h-20"
+                  className: "h-16 md:h-16 lg:h-20"
                 },
                 {
                   src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
                   alt: "Yamaha Logo",
-                  className: "hidden md:block h-10 md:h-12 lg:h-16"
+                  className: "hidden md:block h-12 md:h-12 lg:h-16"
                 },
               ].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-24 md:w-40 lg:w-48">
+                <div key={index} className="flex items-center justify-center w-32 md:w-40 lg:w-48">
                   <img
                     src={logo.src}
                     alt={logo.alt}
