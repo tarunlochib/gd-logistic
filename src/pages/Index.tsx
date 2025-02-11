@@ -1,85 +1,19 @@
+import HeroSection from "../components/home/HeroSection";
+import StatsSection from "../components/home/StatsSection";
+import PartnersSection from "../components/home/PartnersSection";
 import { Truck, Package, Map, ArrowRight, Globe, Building2, BadgeCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const Index = () => {
-  const [counts, setCounts] = useState({
-    vehicles: 0,
-    warehouses: 0,
-    clients: 0
-  });
-
-  useEffect(() => {
-    const duration = 2000; // 2 seconds for the animation
-    const steps = 50; // number of steps in the animation
-    const interval = duration / steps;
-
-    const targetCounts = {
-      vehicles: 1000,
-      warehouses: 50,
-      clients: 2000
-    };
-
-    let currentStep = 0;
-
-    const timer = setInterval(() => {
-      currentStep++;
-      
-      if (currentStep <= steps) {
-        setCounts({
-          vehicles: Math.floor((targetCounts.vehicles / steps) * currentStep),
-          warehouses: Math.floor((targetCounts.warehouses / steps) * currentStep),
-          clients: Math.floor((targetCounts.clients / steps) * currentStep)
-        });
-      } else {
-        setCounts(targetCounts);
-        clearInterval(timer);
-      }
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="h-screen relative flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img 
-            src="/lovable-uploads/c7cd9328-7424-4db5-8a6d-968ef7081eb7.png"
-            alt="Logistics Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" /> {/* Reduced opacity overlay */}
-        </div>
-        <div className="container relative z-10 px-4 animate-fade-up max-w-6xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center text-white">
-            Simplifying your business with Reliable Logistics Solutions
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-center max-w-3xl mx-auto text-white">
-            From cargo transportation to advanced supply chain solutions, we deliver excellence at every step
-          </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link
-              to="/services"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md transition-all flex items-center gap-2 hover:scale-105 animate-fade-up"
-            >
-              Explore Services <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
-              to="/contact"
-              className="border border-white hover:bg-white/10 text-white px-6 py-3 rounded-md transition-all hover:scale-105 animate-fade-up"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      <HeroSection />
+      <StatsSection />
+      <PartnersSection />
       {/* Services Preview */}
       <section className="py-20 bg-gray-50">
         <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up font-poppins">
             Our Core Services
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -109,13 +43,13 @@ const Index = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <service.icon className="h-12 w-12 text-secondary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2 text-primary">
+                <h3 className="text-xl font-semibold mb-2 text-primary font-poppins">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <p className="text-gray-600 mb-4 font-inter">{service.description}</p>
                 <Link
                   to="/services"
-                  className="text-secondary hover:text-secondary/80 flex items-center gap-2 transition-colors"
+                  className="text-secondary hover:text-secondary/80 flex items-center gap-2 transition-colors font-inter"
                 >
                   Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
                 </Link>
@@ -128,7 +62,7 @@ const Index = () => {
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up font-poppins">
             Why Choose GD Logistic?
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
@@ -160,34 +94,8 @@ const Index = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <feature.icon className="h-12 w-12 text-secondary mx-auto mb-4 hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-primary text-white">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
-            {[
-              { number: counts.vehicles, suffix: "+", label: "Vehicles" },
-              { number: counts.warehouses, suffix: "+", label: "Warehouses" },
-              { number: counts.clients, suffix: "+", label: "Happy Clients" },
-              { number: "24/7", label: "Support" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="text-center"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="text-4xl font-bold mb-2 text-secondary">
-                  {typeof stat.number === 'number' ? stat.number.toLocaleString() : stat.number}
-                  {stat.suffix}
-                </div>
-                <div className="text-lg">{stat.label}</div>
+                <h3 className="text-lg font-semibold mb-2 font-poppins">{feature.title}</h3>
+                <p className="text-gray-600 font-inter">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -197,7 +105,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">
         <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up font-poppins">
             What Our Clients Say
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -223,107 +131,11 @@ const Index = () => {
                 className="p-6 bg-white rounded-lg shadow-md animate-fade-up"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <p className="text-gray-600 mb-4 italic">{testimonial.text}</p>
-                <div className="font-semibold">{testimonial.author}</div>
-                <div className="text-sm text-gray-500">{testimonial.company}</div>
+                <p className="text-gray-600 mb-4 italic font-inter">{testimonial.text}</p>
+                <div className="font-semibold font-poppins">{testimonial.author}</div>
+                <div className="text-sm text-gray-500 font-inter">{testimonial.company}</div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Clients Section with updated mobile styling */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary animate-fade-up">
-            Trusted by Industry Leaders
-          </h2>
-          <div className="flex gap-16 items-center animate-marquee">
-            <div className="flex gap-8 md:gap-16 items-center min-w-full justify-around">
-              {[
-                {
-                  src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
-                  alt: "Tata Logo",
-                  className: "h-16 md:h-16 lg:h-20"
-                },
-                {
-                  src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
-                  alt: "Hero Logo",
-                  className: "h-16 md:h-16 lg:h-20"
-                },
-                {
-                  src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
-                  alt: "Honda Logo",
-                  className: "hidden md:block h-12 md:h-12 lg:h-16"
-                },
-                {
-                  src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
-                  alt: "Maruti Suzuki Logo",
-                  className: "hidden md:block h-10 md:h-10 lg:h-14"
-                },
-                {
-                  src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
-                  alt: "New Holland Logo",
-                  className: "h-16 md:h-16 lg:h-20"
-                },
-                {
-                  src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
-                  alt: "Yamaha Logo",
-                  className: "hidden md:block h-12 md:h-12 lg:h-16"
-                },
-              ].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-32 md:w-40 lg:w-48">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className={`${logo.className} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`}
-                  />
-                </div>
-              ))}
-            </div>
-            {/* Duplicate for seamless loop with same adjustments */}
-            <div className="flex gap-8 md:gap-16 items-center min-w-full justify-around">
-              {[
-                {
-                  src: "/lovable-uploads/22a45b9e-8951-49a4-9371-8dccb0308bd8.png",
-                  alt: "Tata Logo",
-                  className: "h-16 md:h-16 lg:h-20"
-                },
-                {
-                  src: "/lovable-uploads/bcf22be5-5280-4b62-a4a7-7dc3c1c28115.png",
-                  alt: "Hero Logo",
-                  className: "h-16 md:h-16 lg:h-20"
-                },
-                {
-                  src: "/lovable-uploads/d5ae072d-cfbe-4dac-92a2-acea4e484505.png",
-                  alt: "Honda Logo",
-                  className: "hidden md:block h-12 md:h-12 lg:h-16"
-                },
-                {
-                  src: "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png",
-                  alt: "Maruti Suzuki Logo",
-                  className: "hidden md:block h-10 md:h-10 lg:h-14"
-                },
-                {
-                  src: "/lovable-uploads/e1de7002-1313-497d-8351-da50cc04b2c9.png",
-                  alt: "New Holland Logo",
-                  className: "h-16 md:h-16 lg:h-20"
-                },
-                {
-                  src: "/lovable-uploads/3a48eaea-e31a-4858-9b85-31f4962c000a.png",
-                  alt: "Yamaha Logo",
-                  className: "hidden md:block h-12 md:h-12 lg:h-16"
-                },
-              ].map((logo, index) => (
-                <div key={index} className="flex items-center justify-center w-32 md:w-40 lg:w-48">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className={`${logo.className} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`}
-                  />
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -331,14 +143,14 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="container max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 animate-fade-up">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto animate-fade-up">
+          <h2 className="text-3xl font-bold mb-6 animate-fade-up font-poppins">Ready to Get Started?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto animate-fade-up font-inter">
             Contact us today to discuss your logistics needs and get a customized
             solution for your business.
           </p>
           <Link
             to="/contact"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md transition-all inline-flex items-center gap-2 hover:scale-105 animate-fade-up"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md transition-all inline-flex items-center gap-2 hover:scale-105 animate-fade-up font-poppins"
           >
             Contact Us <ArrowRight className="h-5 w-5" />
           </Link>

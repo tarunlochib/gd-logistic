@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-16 pb-8">
+    <footer className="bg-[#1A1F2C] text-white pt-16 pb-8">
       <div className="container px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -13,18 +13,18 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/28260aac-e651-4c29-9814-9bdbeb1032eb.png" 
                 alt="GD Logistic" 
-                className="h-12 w-auto"
+                className="h-12 w-auto bg-white/5 p-1 rounded"
               />
             </Link>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 font-inter">
               Your trusted partner in logistics and transportation across India.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 font-poppins">Quick Links</h3>
+            <ul className="space-y-2 font-inter">
               {["About", "Services", "Locations", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
@@ -40,26 +40,26 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="animate-fade-up" style={{ animationDelay: "400ms" }}>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 font-poppins">Head Office</h3>
+            <ul className="space-y-2 font-inter">
               <li className="flex items-center gap-2">
-                <MapPin className="h-5 w-5 text-secondary" />
-                <span className="text-gray-300">123 Main St, New Delhi, India</span>
+                <MapPin className="h-5 w-5 text-secondary flex-shrink-0" />
+                <span className="text-gray-300">SCO-99, Sector-10A, HUDA Market, Gurgaon (HR) - 122001</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-5 w-5 text-secondary" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
+                <span className="text-gray-300">+91-9720450635</span>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-secondary" />
-                <span className="text-gray-300">info@gdlogistic.com</span>
+                <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
+                <span className="text-gray-300">gdlogistics@yahoo.com</span>
               </li>
             </ul>
           </div>
 
           {/* Social Links */}
           <div className="animate-fade-up" style={{ animationDelay: "600ms" }}>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+            <h3 className="text-lg font-semibold mb-4 font-poppins">Follow Us</h3>
             <div className="flex gap-4">
               {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
                 <a
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-white/10 pt-8 text-center animate-fade-up">
+        <div className="border-t border-white/10 pt-8 text-center animate-fade-up font-inter">
           <p className="text-gray-300">
             © {new Date().getFullYear()} GD Logistic. All rights reserved.
           </p>
