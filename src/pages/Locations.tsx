@@ -1,4 +1,3 @@
-
 import { MapPin, Building2 } from "lucide-react";
 
 const Locations = () => {
@@ -13,7 +12,7 @@ const Locations = () => {
     {
       city: "Faridabad",
       title: "Branch Office & Warehouse",
-      address: "Plot No. 166, Bhakri Industrial Area, Faridabad (HR) - 121001",
+      address: "Shop No. 105, Sector-22, Faridabad, Haryana 121008",
       phone: "+91-9720695536",
     },
     {
@@ -52,9 +51,9 @@ const Locations = () => {
           <div className="bg-gradient-to-br from-primary to-primary/90 rounded-2xl overflow-hidden shadow-xl">
             <div className="p-8 text-white">
               <div className="flex items-center gap-4 mb-6">
-                <Building2 className="w-10 h-10 text-white" />
+                <Building2 className="w-10 h-10 text-secondary" />
                 <div>
-                  <h2 className="text-2xl font-bold font-poppins">{headOffice.city}</h2>
+                  <h2 className="text-2xl font-bold font-poppins text-secondary">{headOffice.city}</h2>
                   <p className="text-white/90 font-medium">{headOffice.title}</p>
                 </div>
               </div>
@@ -66,9 +65,6 @@ const Locations = () => {
                       <span className="font-semibold">M:</span> {headOffice.phone}
                     </p>
                   )}
-                </div>
-                <div className="relative hidden md:block">
-                  <div className="absolute inset-0 bg-white/5 rounded-lg"></div>
                 </div>
               </div>
             </div>

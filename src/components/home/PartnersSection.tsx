@@ -16,37 +16,50 @@ const PartnersSection = () => {
       alt: "New Holland Logo",
       className: "h-16 sm:h-20 md:h-24"
     },
+    {
+      src: "/lovable-uploads/ec658fe5-ff38-4ed3-9ec4-8c90bcba82ca.png",
+      alt: "Yamaha Logo",
+      className: "h-16 sm:h-20 md:h-24"
+    },
+    {
+      src: "/lovable-uploads/87b54a1b-12c4-4679-9a6d-7acf18c41959.png",
+      alt: "Maruti Suzuki Logo",
+      className: "h-16 sm:h-20 md:h-24"
+    },
+    {
+      src: "/lovable-uploads/e2c1eeac-660a-4835-bc29-edae9abdc7eb.png",
+      alt: "Honda Logo",
+      className: "h-16 sm:h-20 md:h-24"
+    }
   ];
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-primary font-poppins">
-          Trusted by Industry Leaders
-        </h2>
-        <div className="relative flex overflow-x-hidden">
-          <div className="animate-marquee whitespace-nowrap flex items-center gap-16">
-            {[...logos, ...logos].map((logo, index) => (
-              <div key={index} className="inline-block">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`${logo.className} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-16">
-            {[...logos, ...logos].map((logo, index) => (
-              <div key={index} className="inline-block">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`${logo.className} w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300`}
-                />
-              </div>
-            ))}
-          </div>
+    <section className="py-20 bg-white overflow-hidden w-full">
+      <h2 className="text-3xl font-bold text-center mb-12 text-primary font-poppins">
+        Trusted by Industry Leaders
+      </h2>
+      <div className="relative flex overflow-x-hidden w-full">
+        <div className="animate-marquee whitespace-nowrap flex items-center gap-24">
+          {[...logos, ...logos].map((logo, index) => (
+            <div key={index} className="inline-block">
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className={`${logo.className} w-auto object-contain transition-all duration-300`}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-24">
+          {[...logos, ...logos].map((logo, index) => (
+            <div key={index} className="inline-block">
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className={`${logo.className} w-auto object-contain transition-all duration-300`}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

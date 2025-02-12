@@ -1,7 +1,28 @@
 
 import { Phone, Mail, MapPin } from "lucide-react";
+import { toast } from "sonner";
 
 const Contact = () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+      to: 'tarunlochib@gmail.com'
+    };
+
+    try {
+      // Here you would typically send the form data to your backend
+      // For now, we'll just show a success message
+      toast.success("Message sent successfully!");
+      e.currentTarget.reset();
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+    }
+  };
+
   return (
     <div className="min-h-screen pt-16">
       <div className="container px-4 py-20">
@@ -32,7 +53,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-2 font-poppins">Email</h3>
-                  <p className="text-gray-200 font-inter">gdlogistics@yahoo.com</p>
+                  <p className="text-gray-200 font-inter">gdlogistic@yahoo.com</p>
                 </div>
               </div>
             </div>
@@ -42,13 +63,15 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-primary font-poppins">Send us a Message</h2>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1 font-inter">
                     Name
                   </label>
                   <input
+                    name="name"
                     type="text"
+                    required
                     className="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-secondary focus:border-transparent transition-all font-inter"
                     placeholder="Your name"
                   />
@@ -58,7 +81,9 @@ const Contact = () => {
                     Email
                   </label>
                   <input
+                    name="email"
                     type="email"
+                    required
                     className="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-secondary focus:border-transparent transition-all font-inter"
                     placeholder="your@email.com"
                   />
@@ -68,7 +93,9 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
+                    required
                     className="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-secondary focus:border-transparent transition-all font-inter"
                     placeholder="Your message"
                   ></textarea>

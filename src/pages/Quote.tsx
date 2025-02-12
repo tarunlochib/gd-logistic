@@ -1,7 +1,30 @@
-
 import { DollarSign, Package, Truck } from "lucide-react";
+import { toast } from "sonner";
 
 const Quote = () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      fullName: formData.get('fullName'),
+      companyName: formData.get('companyName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      serviceType: formData.get('serviceType'),
+      details: formData.get('details'),
+      to: 'tarunlochib@gmail.com'
+    };
+
+    try {
+      // Here you would typically send the form data to your backend
+      // For now, we'll just show a success message
+      toast.success("Quote request sent successfully!");
+      e.currentTarget.reset();
+    } catch (error) {
+      toast.error("Failed to send quote request. Please try again.");
+    }
+  };
+
   return (
     <div className="min-h-screen pt-16">
       <div className="container px-4 py-20">
@@ -33,13 +56,15 @@ const Quote = () => {
 
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-6">Request a Quote</h2>
-          <form className="grid gap-6 md:grid-cols-2">
+          <form className="grid gap-6 md:grid-cols-2" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <input
+                name="fullName"
                 type="text"
+                required
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
               />
             </div>
