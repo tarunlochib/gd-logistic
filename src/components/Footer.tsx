@@ -1,10 +1,9 @@
-
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1A1F2C] text-white pt-16 pb-8">
+    <footer className="bg-[#1E293B] text-white pt-16 pb-8">
       <div className="container px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
