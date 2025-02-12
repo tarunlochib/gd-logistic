@@ -49,32 +49,25 @@ const Services = () => {
           Comprehensive logistics solutions tailored to meet your business needs
         </p>
         
-        <div className="grid gap-8 lg:gap-12">
+        <div className="grid gap-8 lg:grid-cols-3">
           {mainServices.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-up group hover:-translate-y-1"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="p-8">
-                  <div className="mb-6">{service.icon}</div>
-                  <h3 className="text-2xl font-bold mb-4 text-primary font-poppins">{service.title}</h3>
-                  <p className="text-gray-600 mb-6 font-inter">{service.description}</p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-700 font-inter">
-                        <ArrowRight className="w-5 h-5 text-secondary" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 flex items-center justify-center">
-                  <div className="w-full max-w-md">
-                    {/* Placeholder for service-specific imagery or additional content */}
-                  </div>
-                </div>
+              <div className="p-8">
+                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-primary font-poppins">{service.title}</h3>
+                <p className="text-gray-600 mb-6 font-inter">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-gray-700 font-inter">
+                      <ArrowRight className="w-5 h-5 text-secondary" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}

@@ -12,11 +12,11 @@ const About = () => {
         {/* Owner Section */}
         <div className="max-w-4xl mx-auto mb-16 animate-fade-up bg-white rounded-2xl shadow-lg overflow-hidden">
           <div className="grid md:grid-cols-2 gap-8 p-8">
-            <div className="aspect-square rounded-lg overflow-hidden">
+            <div className="relative aspect-square rounded-full overflow-hidden border-4 border-gray-100 shadow-xl mx-auto w-64 md:w-full max-w-[320px]">
               <img
                 src="/lovable-uploads/79cad9ff-2728-430b-bf43-be7275a3518c.png"
                 alt="Vikram Lochib"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="flex flex-col justify-center">

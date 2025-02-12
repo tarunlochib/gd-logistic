@@ -45,17 +45,17 @@ const Locations = () => {
   return (
     <div className="min-h-screen pt-16 bg-gray-50">
       <div className="container px-4 py-20">
-        <h1 className="text-4xl font-bold text-primary mb-12 font-poppins text-center">Our Network</h1>
+        <h1 className="text-4xl font-bold text-primary mb-12 text-center font-poppins">Our Network</h1>
 
         {/* Head Office Section */}
         <div className="mb-16 transform hover:scale-102 transition-all duration-300">
           <div className="bg-gradient-to-br from-primary to-primary/90 rounded-2xl overflow-hidden shadow-xl">
             <div className="p-8 text-white">
               <div className="flex items-center gap-4 mb-6">
-                <Building2 className="w-10 h-10 text-secondary" />
+                <Building2 className="w-10 h-10 text-white" />
                 <div>
                   <h2 className="text-2xl font-bold font-poppins">{headOffice.city}</h2>
-                  <p className="text-secondary font-medium">{headOffice.title}</p>
+                  <p className="text-white/90 font-medium">{headOffice.title}</p>
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
@@ -68,7 +68,7 @@ const Locations = () => {
                   )}
                 </div>
                 <div className="relative hidden md:block">
-                  <div className="absolute inset-0 bg-secondary/10 rounded-lg"></div>
+                  <div className="absolute inset-0 bg-white/5 rounded-lg"></div>
                 </div>
               </div>
             </div>
