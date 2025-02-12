@@ -1,9 +1,13 @@
 import { DollarSign, Package, Truck } from "lucide-react";
 import { toast } from "sonner";
+import { useState } from "react";
 
 const Quote = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const formData = new FormData(e.currentTarget);
     const data = {
       fullName: formData.get('fullName'),
@@ -12,16 +16,29 @@ const Quote = () => {
       phone: formData.get('phone'),
       serviceType: formData.get('serviceType'),
       details: formData.get('details'),
-      to: 'tarunlochib@gmail.com'
     };
 
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll just show a success message
+      const response = await fetch('https://[your-project-ref].supabase.co/functions/v1/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          type: 'quote',
+          data
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to send quote request');
+
       toast.success("Quote request sent successfully!");
       e.currentTarget.reset();
     } catch (error) {
       toast.error("Failed to send quote request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -119,9 +136,10 @@ const Quote = () => {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="w-full bg-secondary text-white py-3 px-6 rounded-md hover:bg-secondary/90 transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-secondary text-white py-3 px-6 rounded-md hover:bg-secondary/90 transition-colors disabled:opacity-50"
               >
-                Request Quote
+                {isSubmitting ? "Sending..." : "Request Quote"}
               </button>
             </div>
           </form>

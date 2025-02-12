@@ -1,25 +1,41 @@
-
 import { Phone, Mail, MapPin } from "lucide-react";
 import { toast } from "sonner";
+import { useState } from "react";
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
-      to: 'tarunlochib@gmail.com'
     };
 
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll just show a success message
+      const response = await fetch('https://[your-project-ref].supabase.co/functions/v1/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          type: 'contact',
+          data
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to send message');
+
       toast.success("Message sent successfully!");
       e.currentTarget.reset();
     } catch (error) {
       toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -27,7 +43,6 @@ const Contact = () => {
     <div className="min-h-screen pt-16">
       <div className="container px-4 py-20">
         <div className="max-w-6xl mx-auto">
-          {/* Headquarters Section */}
           <div className="bg-gradient-to-br from-primary to-primary/90 p-8 rounded-2xl shadow-xl mb-12 text-white">
             <h2 className="text-3xl font-bold mb-6 font-poppins">Head Office</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -60,7 +75,6 @@ const Contact = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Form */}
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-primary font-poppins">Send us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -102,14 +116,14 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-secondary text-white py-3 rounded-lg hover:bg-secondary/90 transition-colors font-inter"
+                  disabled={isSubmitting}
+                  className="w-full bg-secondary text-white py-3 rounded-lg hover:bg-secondary/90 transition-colors font-inter disabled:opacity-50"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
 
-            {/* Branch Offices */}
             <div className="bg-gray-50 p-8 rounded-2xl">
               <h2 className="text-2xl font-bold mb-6 text-primary font-poppins">Branch Offices</h2>
               <div className="space-y-6">
