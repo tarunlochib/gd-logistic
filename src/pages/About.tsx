@@ -22,16 +22,16 @@ const About = () => {
             <div className="flex flex-col justify-center">
               <h2 className="text-2xl font-bold mb-4 text-primary font-poppins">Vikram Lochib</h2>
               <p className="text-gray-600 mb-4 font-inter">
-                With over 20 years of experience in logistics and transportation,
-                Vikram Lochib founded GD Logistic with a vision to revolutionize
-                the logistics industry in India. His expertise and leadership have
-                been instrumental in making GD Logistic one of the most trusted
-                names in the industry.
+                With over 35 years of experience in logistics and transportation,
+                Vikram Lochib established GD Logistic in 1987 with a vision to provide
+                reliable and efficient logistics solutions across India. His expertise
+                and leadership have been instrumental in making GD Logistic one of the
+                most trusted names in the industry.
               </p>
               <p className="text-gray-600 font-inter">
                 Under his guidance, GD Logistic has grown from a small local
-                transport company to a nationwide logistics provider, serving
-                thousands of businesses across India.
+                transport company to a respected logistics provider, serving
+                businesses across India with a fleet of specialized vehicles.
               </p>
             </div>
           </div>
@@ -42,9 +42,9 @@ const About = () => {
             <TruckIcon className="w-12 h-12 text-secondary mb-4" />
             <h3 className="text-xl font-semibold mb-2 font-poppins">Our Legacy</h3>
             <p className="text-gray-600 font-inter">
-              Founded in 2010, GD Logistic has grown from a small local transport
-              company to one of India's leading logistics providers, serving
-              thousands of businesses nationwide.
+              Established in 1987, GD Logistic has built a strong reputation for
+              reliability and excellence in logistics services, serving businesses
+              across India for over three decades.
             </p>
           </div>
 
@@ -60,11 +60,11 @@ const About = () => {
 
           <div className="p-8 bg-white rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
             <Building2Icon className="w-12 h-12 text-secondary mb-4" />
-            <h3 className="text-xl font-semibold mb-2 font-poppins">Our Scale</h3>
+            <h3 className="text-xl font-semibold mb-2 font-poppins">Our Fleet</h3>
             <p className="text-gray-600 font-inter">
-              With over 50 warehouses, 1000+ vehicles, and 2000+ dedicated
-              employees, we have the infrastructure to handle your logistics needs
-              across India.
+              We maintain a modern fleet of 20+ specialized vehicles, including
+              14ft, 22ft, and 32ft close-body trucks, ensuring we can meet diverse
+              transportation needs.
             </p>
           </div>
         </div>
@@ -73,17 +73,17 @@ const About = () => {
           <h2 className="text-2xl font-bold mb-6 text-center font-poppins">Why Choose Us?</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="p-6 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold mb-2 font-poppins">Nationwide Coverage</h4>
+              <h4 className="font-semibold mb-2 font-poppins">35+ Years of Experience</h4>
               <p className="text-gray-600 font-inter">
-                Our extensive network covers all major cities and industrial hubs
-                across India.
+                With over three decades of experience, we understand the intricacies
+                of logistics and transportation in India.
               </p>
             </div>
             <div className="p-6 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold mb-2 font-poppins">Modern Technology</h4>
+              <h4 className="font-semibold mb-2 font-poppins">Specialized Fleet</h4>
               <p className="text-gray-600 font-inter">
-                Real-time tracking and automated systems ensure efficient operations
-                and complete visibility.
+                Our diverse fleet of close-body trucks ranging from 14ft to 32ft
+                ensures we can handle any logistics requirement.
               </p>
             </div>
           </div>

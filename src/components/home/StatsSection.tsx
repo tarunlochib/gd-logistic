@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 const StatsSection = () => {
   const [counts, setCounts] = useState({
     vehicles: 0,
-    warehouses: 0,
+    experience: 0,
     clients: 0
   });
 
@@ -21,9 +21,9 @@ const StatsSection = () => {
       const interval = duration / steps;
 
       const targetCounts = {
-        vehicles: 1000,
-        warehouses: 50,
-        clients: 2000
+        vehicles: 20,
+        experience: 35,
+        clients: 500
       };
 
       let currentStep = 0;
@@ -34,7 +34,7 @@ const StatsSection = () => {
         if (currentStep <= steps) {
           setCounts({
             vehicles: Math.floor((targetCounts.vehicles / steps) * currentStep),
-            warehouses: Math.floor((targetCounts.warehouses / steps) * currentStep),
+            experience: Math.floor((targetCounts.experience / steps) * currentStep),
             clients: Math.floor((targetCounts.clients / steps) * currentStep)
           });
         } else {
@@ -52,8 +52,8 @@ const StatsSection = () => {
       <div className="container max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
           {[
-            { number: counts.vehicles, suffix: "+", label: "Vehicles" },
-            { number: counts.warehouses, suffix: "+", label: "Warehouses" },
+            { number: counts.vehicles, suffix: "+", label: "Specialized Vehicles" },
+            { number: counts.experience, suffix: "+", label: "Years of Experience" },
             { number: counts.clients, suffix: "+", label: "Happy Clients" },
             { number: "24/7", label: "Support" },
           ].map((stat, index) => (

@@ -6,18 +6,18 @@ const ServicesSection = () => {
   const services = [
     {
       icon: <Package className="w-12 h-12 text-secondary" />,
-      title: "Third Party Logistics (3PL)",
-      description: "Comprehensive 3PL services including transportation management, warehousing, and distribution solutions."
+      title: "Specialized Fleet",
+      description: "Fleet of 20+ vehicles including 14ft, 22ft, and 32ft close-body trucks for all your transportation needs."
     },
     {
       icon: <Building2 className="w-12 h-12 text-secondary" />,
-      title: "Warehousing Facilities",
-      description: "State-of-the-art warehousing facilities with modern inventory management systems across India."
+      title: "Nationwide Coverage",
+      description: "Reliable logistics services across India, backed by 35+ years of industry experience and expertise."
     },
     {
       icon: <Truck className="w-12 h-12 text-secondary" />,
       title: "Supply Chain Solutions",
-      description: "End-to-end supply chain optimization solutions from procurement to last-mile delivery."
+      description: "End-to-end supply chain optimization solutions ensuring timely and secure delivery of your goods."
     }
   ];
 
@@ -26,7 +26,7 @@ const ServicesSection = () => {
       <div className="container max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-4 text-primary font-poppins">Our Core Services</h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto font-inter">
-          Comprehensive logistics solutions tailored to meet your business needs
+          Professional logistics solutions tailored to your business needs since 1987
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
