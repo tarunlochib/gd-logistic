@@ -1,15 +1,37 @@
 
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section className="h-screen relative flex items-center justify-center">
       <div className="absolute inset-0">
+        {/* Low quality placeholder */}
+        <div 
+          className="absolute inset-0 bg-gray-200"
+          style={{
+            backgroundImage: `url('/lovable-uploads/c7cd9328-7424-4db5-8a6d-968ef7081eb7.png?quality=1')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(10px)',
+            transform: 'scale(1.1)',
+            opacity: imageLoaded ? 0 : 1,
+            transition: 'opacity 0.5s ease-in-out'
+          }}
+        />
+        
+        {/* High quality image */}
         <img 
-          src="/lovable-uploads/c7cd9328-7424-4db5-8a6d-968ef7081eb7.png"
+          src="/lovable-uploads/c7cd9328-7424-4db5-8a6d-968ef7081eb7.png?quality=80&w=1920"
           alt="Logistics Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-opacity duration-500"
+          style={{ opacity: imageLoaded ? 1 : 0 }}
+          onLoad={() => setImageLoaded(true)}
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
