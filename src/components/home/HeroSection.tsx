@@ -1,13 +1,13 @@
 
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  const imagePath = "/lovable-uploads/2882fad1-5669-4fbc-a6c5-54ea77bc89a7.png";
+  const imagePath = "/lovable-uploads/041b6474-feb1-4c50-b615-a6548ee54e4e.png";
 
   return (
     <section className="h-screen relative flex items-center justify-center">
@@ -28,7 +28,7 @@ const HeroSection = () => {
         
         {/* High quality image */}
         <img 
-          src={`${imagePath}?quality=80&w=1920`}
+          src={imagePath}
           alt="Logistics Background"
           className="w-full h-full object-cover transition-opacity duration-500"
           style={{ opacity: imageLoaded ? 1 : 0 }}
