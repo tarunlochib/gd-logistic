@@ -1,3 +1,4 @@
+
 import { Phone, Mail, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -130,7 +131,7 @@ const Contact = () => {
                 {[
                   {
                     city: "Faridabad",
-                    address: "Plot No. 166, Bhakri Industrial Area",
+                    address: "Shop No. 105, Sector-22, Faridabad, Haryana 121008",
                     phone: "+91-9720695536"
                   },
                   {
