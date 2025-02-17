@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  const imagePath = "/lovable-uploads/2882fad1-5669-4fbc-a6c5-54ea77bc89a7.png";
 
   return (
     <section className="h-screen relative flex items-center justify-center">
@@ -13,7 +16,7 @@ const HeroSection = () => {
         <div 
           className="absolute inset-0 bg-gray-200"
           style={{
-            backgroundImage: `url('/lovable-uploads/2882fad1-5669-4fbc-a6c5-54ea77bc89a7.png?quality=1')`,
+            backgroundImage: `url('${imagePath}?quality=1')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'blur(10px)',
@@ -25,15 +28,20 @@ const HeroSection = () => {
         
         {/* High quality image */}
         <img 
-          src="/lovable-uploads/2882fad1-5669-4fbc-a6c5-54ea77bc89a7.png?quality=80&w=1920"
+          src={`${imagePath}?quality=80&w=1920`}
           alt="Logistics Background"
           className="w-full h-full object-cover transition-opacity duration-500"
           style={{ opacity: imageLoaded ? 1 : 0 }}
           onLoad={() => setImageLoaded(true)}
+          onError={(e) => {
+            console.error('Error loading image:', e);
+            setImageError(true);
+            setImageLoaded(true);
+          }}
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-black/50" /> {/* Slightly darker overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50" />
       </div>
       <div className="container relative z-10 px-4 animate-fade-up max-w-6xl mx-auto text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white font-poppins max-w-4xl mx-auto leading-tight">
